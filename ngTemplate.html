@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-route.min.js"></script>
+    <script>
+        var spaApp = angular.module("myApp", ['ngRoute']);
+
+        spaApp.config(function ($routeProvider) {
+
+            $routeProvider.when('/cust', {
+                templateUrl: 'CustTemplate',
+                controller: 'myCustomerController'
+            });
+
+            $routeProvider.when('/ord', {
+                templateUrl: 'OrderTemplate',
+                controller: 'myOrdersController'
+            });
+
+            $routeProvider.when('/', {
+                templateUrl: 'CustTemplate',
+                controller: 'myCustomerController'
+            });
+        });
+
+    </script>
+    <script src="Controller/Cust-Ext.js"></script>
+    <script src="Controller/MyOrders-Ext.js"></script>
+</head>
+<body ng-app="myApp">
+    <script type="text/ng-template" id="OrderTemplate">
+        <div>
+            <h5>Order Details</h5>
+            <div>
+                <table>
+                    <tr>
+                        <td>Product Name</td>
+                        <td>
+                            <input type="text" ng-model="Product" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Quantity</td>
+                        <td>
+                            <input type="text" ng-model="Quantity" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Total Cost</td>
+                        <td>
+                            <input type="text" ng-model="Cost" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <input type="button" value="Get Price" ng-click="Calculate()" />
+                        </td>
+                    </tr>
+                </table>
+                <br />
+                <br />
+                TOTAL PRICE IS: {{TotalPrice}}
+            </div>
+        </div>
+    </script>
+    <script type="text/ng-template" id="CustTemplate">
+        <div>
+            <h2>THIS IS A CUSTOMER DETAILS PAGE </h2>
+            <br />
+            <br />
+            ENTER CUSTOMER NAME:
+            <input type="text" NG-MODEL="CustomerName" />
+            <br />
+            <br />
+            ENTER CUSTOMER MOBILE:
+            <input type="text" ng-model="CustomerMobile" />
+            <br />
+            <br />
+            <input type="button" value="GetCustomers" ng-click="FetchCustomers()" />
+            <br />
+            <br />
+            Customers FullName:  {{FULLNAME}}
+        </div>
+    </script>
+
+    <div style="height: 50px; background-color: Aqua">
+        <a href="#cust">Customer</a> <a href="#ord">Order</a>
+    </div>
+    <br />
+    <br />
+    <br />
+    <div ng-view="">
+    </div>
+    <br />
+    <br />
+    <br />
+    <div style="height: 50px; background-color: Aqua">
+        This is Footer
+    </div>
+</body>
+</html>

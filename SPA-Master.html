@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-route.min.js"></script>
+    <script>
+        var spaApp = angular.module("myApp", ['ngRoute']);
+
+        spaApp.config(function ($routeProvider) {
+
+            $routeProvider.when('/cust', {
+                templateUrl: 'Customer.htm',
+                controller: 'myCustomerController'
+            });
+
+            $routeProvider.when('/ord', {
+                templateUrl: 'Orders.htm',
+                controller: 'myOrdersController'
+            });
+
+            $routeProvider.when('/', {
+                templateUrl: 'Customer.htm',
+                controller: 'myCustomerController'
+            });
+        });
+
+    </script>
+    <script src="Controller/Cust-Ext.js"></script>
+    <script src="Controller/MyOrders-Ext.js"></script>
+</head>
+<body ng-app="myApp">
+    <div style="height: 50px; background-color: Aqua">
+        <a href="#cust">Customer</a> <a href="#ord">Order</a>
+    </div>
+    <br />
+    <br />
+    <br />
+    <div ng-view="">
+    </div>
+    <br />
+    <br />
+    <br />
+    <div style="height: 50px; background-color: Aqua">
+        This is Footer
+    </div>
+</body>
+</html>

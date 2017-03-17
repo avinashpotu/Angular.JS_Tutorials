@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>  
+</head>
+<body>
+    ENTER CUSTOMER NAME: 
+    <input type="text" ng-model="cust.customerName" />
+    <br />
+    ENTER ITEM DESCRIPTION:
+    <input type="text" ng-model="cust.itemDescription" />
+    <br />
+    ENTER ITEM QUANTITY:
+    <input type="text" ng-model="cust.itemQuantity" />
+    <br />
+    ENTER ITEM PRICE:
+    <input type="text" ng-model="cust.itemPrice" />
+    <br />
+    <br />
+    <input type="button" value="Get Total Amount" ng-click="GetTotalPrice(cust)" />
+    <br />
+    </br>
+    TOTAL AMOUNT IS : 
+    <p ng-bind="TotalAmount"></p>
+
+</body>
+</html>

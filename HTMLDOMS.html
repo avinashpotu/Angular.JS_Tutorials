@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+</head>
+<body ng-app="">
+    <div ng-show="true">
+        <pre>
+            THIS IS SOME TEXT TO SHOW WHEN NG-SHOW IS     TRUE
+                THIS IS SOME TEXT TO SHOW WHEN NG-SHOW IS TRUE
+            THIS IS SOME TEXT TO SHOW WHEN NG-SHOW IS TRUE
+            THIS IS SOME TEXT TO SHOW WHEN NG-SHOW IS TRUE
+        </pre>
+    </div>
+    <br />
+    <div ng-show="true">
+        <pre>
+            THIS IS SOME TEXT NG-SHOW
+            THIS IS SOME TEXT NG-SHOW
+            THIS IS SOME TEXT NG-SHOW
+            THIS IS SOME TEXT TO SHOW
+        </pre>
+    </div>
+    <br />
+    <input type="checkbox" ng-model="isChecked"/>
+    <br />
+    <input type="button" value="Check for Disable" ng-disabled="isChecked"/>
+</body>
+</html>

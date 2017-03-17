@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+    <script>
+        function validateCtrl($scope) {
+            $scope.user = 'Avinash';
+            $scope.email = 'avinash@gmail.com';
+        }
+    </script>
+</head>
+<body>
+    <h1>
+        <!--<pre>-->
+        <!--<table border="1">
+            <tr>
+                <td>
+                    Property
+                </td>
+                <td>
+                    Description
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    $dirty
+                </td>
+                <td>
+                    The user has interacted with the field.
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    $valid
+                </td>
+                <td>
+                    The field content is valid.
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    $invalid
+                </td>
+                <td>
+                    The field content is invalid.
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    $pristine
+                </td>
+                <td>
+                    User has not interacted with the field yet.
+                </td>
+            </tr>
+        </table>-->
+        <!--</pre>-->
+    </h1>
+    <form ng-app="" ng-controller="validateCtrl" name="myForm" novalidate>
+        <p>
+            Username:<br>
+            <input type="text" id="txtUser" name="user" ng-model="user" required>
+            <span style="color: red" ng-show="myForm.user.$dirty && myForm.user.$invalid">
+                <span ng-show="myForm.user.$error.required">Username is required.</span>
+            </span>
+        </p>
+        <p>
+            Email:<br>
+            <input type="email" name="email" ng-model="email" required>
+            <!--<input type="submit" value="Submit" />-->
+            <span style="color: red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
+                <span ng-show="myForm.email.$error.required">Email is required.</span>
+                <span ng-show="myForm.email.$error.email">Invalid email address.</span>
+            </span>
+        </p>
+    </form>
+</body>
+</html>

@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+    <script>
+        var appX = angular.module("MX", []);
+    </script>
+    <!--<script src="app/CusotmerModule.js" type="text/javascript"></script>-->
+    <script src="Controllers/Cutomer.js" type="text/javascript"></script>
+    
+</head>
+<body ng-app="MX" ng-controller="CustControllerX">
+    <h1>
+        THIS IS NG-INCLUDE EXAMPLE</h1>
+    <br />
+    <br />
+    <div ng-include="'PartialPage.htm'">
+    </div>
+</body>
+</html>

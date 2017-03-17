@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+    <script>
+        function myController($scope)
+        {
+            $scope.GetArea = function()
+            {
+                $scope.TotalArea = parseFloat($scope.length) *  parseFloat($scope.breadth);
+            }
+        }
+
+    </script>
+</head>
+<body ng-app="" ng-class="'container'" >
+    <div ng-controller="myController">
+        <h1>THIS IS AN EXAMPLE FOR CONTROLLERS</h1>
+        <br />
+        <br />
+        ENTER LENGTH OF A RECTANGLE : <input type="text" ng-model="length" />
+        <br />
+        <br />
+        ENTER BREADTH OF A RECTANGLE : <input type="text" ng-model="breadth" />
+        <br />
+        <br />
+        <input type="button" ng-class="'btn btn-success'" value="Get Area of a Rectangle" ng-click="GetArea()" />
+        <br />
+        <br />
+        TOTAL AREA OF A RECTANGLE IS : {{TotalArea}}
+    </div>    
+</body>
+</html>

@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+    <script>
+        var app = angular.module("myApp", []);
+
+        app.controller("myController", function ($scope) {
+            $scope.x = 1000;
+        });
+
+        app.controller("C1", function ($scope) {
+            $scope.y = 3000;
+        })
+    </script>
+</head>
+<body ng-app="myApp">
+    <div ng-controller="myController">
+        {{x}}
+    </div>
+    <br />
+    <br />
+    <div ng-controller="C1">
+        {{y}}
+    </div>
+</body>
+</html>

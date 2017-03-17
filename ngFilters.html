@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+
+</head>
+<body ng-app="" ng-init="Persons = [{firstName:'Sravani',lastName: 'Alluri', place: 'Chicago'},
+                             {firstName:'Praveen',lastName: 'Kumar', place: 'Hyderabad'},
+                             {firstName:'John',lastName: 'DE', place: 'Australia'}]">
+    ENTER SEARCH CRITERIA:
+    <input type="text" ng-model="search" /> <!--search.place-->
+    <br />
+    <br />
+    <table border="1">
+        <tr>
+            <th>
+                FIRST NAME
+            </th>
+            <th>
+                LAST NAME
+            </th>
+            <th>
+                PLACE
+            </th>
+        </tr>
+        <!--<tr ng-repeat="person in Persons | filter : search">-->
+        <tr ng-repeat="person in Persons | orderBy : 'firstName' : 'true'">
+            <td>
+                {{person.firstName | lowercase}}
+            </td>
+            <td>
+                {{person.lastName | uppercase}}
+            </td>
+            <td>
+                {{person.place}}
+            </td>
+        </tr>
+    </table>
+    <br />
+    <br />
+    ENTER DIGITS:
+    <input type="text" ng-model="currencyText" />
+    <br />
+    {{currencyText | currency : 'CAN $ '}}
+
+    <br />
+    {{currencyText | limitTo : 2}}
+
+    <br />
+    {{currencyText | number : 5}}
+</body>
+</html>

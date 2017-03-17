@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+
+    <script src="Controller/ExtController.js"></script>
+</head>
+<body ng-app="" ng-controller="myController">
+    Enter First Number : <input type="text" ng-model="Number1" />
+    <br />
+    <br />
+    Enter Second Number: <input type="text" ng-model="Number2" />
+    <br />
+    <br />
+    <input type="button" value="Get Sum" ng-click="Addition()" />
+    <br />
+    <br />
+    Sum of entered numbers is: {{ result }}
+</body>
+</html>

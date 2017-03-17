@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+    <script>
+        var app = angular.module("myApp", []);
+        app.value("myName", "Avinash Potu");
+        app.value("Place", "USA");
+
+        app.controller("myController", function ($scope, myName, Place) {
+            $scope.MyDetails = "Name : " + myName + " Place :" + Place;
+            myName = "Praveen";
+            Place = "Hyderabad";
+            $scope.NewDetails = "Name : " + myName + " Place :" + Place;
+        })
+    </script>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+    <h1>This is an example to use constants</h1>
+    <br />
+    <br />
+    ADDRESS IS:
+    <br />
+    <p ng-bind="MyDetails"></p>
+    <br />
+    <br />
+    {{NewDetails}}
+</body>
+</html>

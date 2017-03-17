@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+    <script>
+        function Controller($scope) {
+            $scope.blnShow = true;
+            $scope.blnHide = true;
+            $scope.blnDisabled = false;
+
+            $scope.Toggle = function () {
+                $scope.blnShow = !$scope.blnShow;//false;
+                $scope.blnHide = !$scope.blnHide;//false;
+                $scope.blnDisabled = !$scope.blnDisabled;//true;
+            }
+        }
+    </script>
+</head>
+<body ng-app="" ng-controller="Controller">
+    <div ng-show="!blnShow">
+        <h1>
+            I AM IN NG-SHOW DIV
+        </h1>
+    </div>
+    <br />
+    <br />
+    <div ng-hide="!blnHide">
+        <h1>
+            I AM IN NG-HIDE DIV
+        </h1>
+    </div>
+    <br />
+    <br />
+    <button value="Toggle" ng-click="Toggle()">
+        Toggle
+    </button>
+    <br />
+    <br />
+    <input type="text" ng-model="empName" ng-disabled="blnDisabled" />
+</body>
+</html>

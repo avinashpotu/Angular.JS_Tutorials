@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+    <script>
+        var app = angular.module("myMod",[]);
+        app.controller("myController", function ($scope, $http) {
+
+            $scope.GetDetails = function () {
+                $http.get("http://server.arcgisonline.com/arcgis/rest/services?f=pjson").
+                //$http.post("http://server.arcgisonline.com/arcgis/rest/services?f=pjson", { 'id': '123', 'FirstName': $scope.Fname })
+                success(function (data) {
+                   var newData = JSON.stringify(data);
+                   var data1 = JSON.parse(newData); //JSON.parse(string)--->it will take string as a parameter...               
+                   $scope.currentVersionData = data1.currentVersion;
+                   $scope.servicesArr = data1.services;
+                   $scope.foldersData = data1.folders;
+               }).error(function (exception) {
+                   alert(exception);
+               })
+            };
+
+        });
+    </script>
+</head>
+<body ng-app="myMod" ng-controller="myController">
+    <h1>
+        THIS IS SAMPLE EXAMPLE FOR HTTP GET
+    </h1>
+    <br />
+    <br />
+    <input type="button" ng-click="GetDetails()" value="Get" />
+    <br />
+    <br />
+    Current Version is: {{currentVersionData}}
+    <br />
+    <br />
+    <ol>
+        <li ng-repeat="fld in foldersData">{{fld}}</li>
+    </ol>
+    <br />
+    <br />
+    <ul>
+        <li ng-repeat="item in servicesArr">{{item.name + "  <->   " + item.type}} </li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+    <script>
+        var app = angular.module("myApp", []);
+
+        var customers = [
+        {
+            firstName: 'Lee', lastName: 'Carroll', address: '1234 Anywhere St.', city: 'Phoenix'
+        },
+        {
+            firstName: 'Lee1', lastName: 'Carroll1', address: '1234 Anywhere St.1', city: 'Phoenix1'
+        }
+        ];
+
+        app.service("CustomerService", function () {
+            this.GetCustomers = function () {
+                return customers;
+            }
+
+            this.GetCustomerById = function ()
+            {
+                return customers;
+            }
+        });
+
+        app.controller("myController", function ($scope, CustomerService) {
+
+            $scope.lstCustomers = CustomerService.GetCustomers();
+
+        });
+    </script>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+    <h1>THIS IS A SAMPLE SERVICE EXAMPLE</h1>
+    <br />
+    <br />
+    <ul>
+        <li ng-repeat="cst in lstCustomers">
+            {{cst.firstName + '  ' + cst.lastName + '  ' + cst.address + '   ' + cst.city}}
+        </li>
+    </ul>
+</body>
+</html>
