@@ -1,0 +1,1 @@
+﻿var myDIApp = angular.module("M1", ['myApp']);
